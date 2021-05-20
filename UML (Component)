@@ -1,0 +1,15 @@
+@startuml
+node "Сервер БД" {
+  DB - [Слой данных]
+}
+
+node "WEB-приложение" {
+  System- [Обработка данных]
+  [System] --> DB
+}
+
+node "ПК сотрудника"{
+  User - [Приложение]
+  [User] --> System
+}
+@enduml
