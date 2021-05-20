@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+
+actor Диспетчер as user
+participant "WEB-приложение" as system
+database "База данных" as base
+
+user -> system : Запрос на создание путевого листа
+activate system
+system -> base : Запрос необходимых данных
+activate base
+base -> system : Список данных
+system -> base : Заполнение путевого листа данными
+base -> system : Заполненный путевой лист
+system -> base : Сохранение путевого листа
+deactivate base
+system -> user : Созданный путевой лист
+deactivate system
+@enduml
